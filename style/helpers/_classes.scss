@@ -1,0 +1,32 @@
+.get-started{
+    padding: 10px 30px;
+    border-radius: 30px;
+    background-color: var(--blue-second);
+    border: none;
+    color: var(--white-color);
+    font-size:1.8rem;
+}
+
+.scroll-to-top{
+   background-color: var(--blue-second);
+   position: fixed;
+   right: 5%;
+   bottom:50px;
+   font-size: 2rem;
+   color:var(--primary-color);
+   border:none;
+   border-radius:5px;
+   padding:3px;
+   display: none;
+}
+
+.hidden{
+   display: none;
+}
+
+
+
+
+.check{
+  background-color: green;
+}
