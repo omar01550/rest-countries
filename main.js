@@ -1,48 +1,47 @@
 let cards=document.querySelector(".cards");
 let select =document.querySelector('select');
-
-
-
+let back=document.querySelector(".back");
+let home=document.querySelector(".home");
+let details=document.querySelector(".details");
 let url=`https://restcountries.com/v3.1/all`;
 
-let url_2=`https://restcountries.com/v3.1/name/${"egypt"}
+//let url_name=`https://restcountries.com/v3.1/name/${"egypt"}`;
 
-`
+//fetch all countries
+  fetch(url).then(
+    (data)=> data.json()
+  ).then(
+    data =>{
+       createCard(data);
 
-
-fetch(url).then(
-  (data)=> data.json()
-).then(
-  data =>{
-     createCard(data);
-     handelSelect();
-  }
-)
+    }
+  )
 
 
+// create Cards
 function createCard(data){
 
   console.log(data);
 
   for(let i=0;i<data.length;i++){
     let card=`
-    <div class="card" class=${data[i].continents} country>
+    <div class="card ${data[i].continents} country">
        <img src=${data[i].flags.png} alt="not found image">
        <div class="card-content">
          <h2>${data[i].name.common}</h2>
          <div class="card-details">
             <div class="one">
-                <span>region</span>:<span>${data[i].region}</span>
+                <span class="key">region</span>:<span class="value">${data[i].region}</span>
             </div>
 
             <div class="two">
-               <span>Poulation</span>:<span>${data[i].population}</span>
+               <span class="key">Poulation</span>:<span class="value">${data[i].population}</span>
             </div>
 
 
 
              <div class="three">
-                 <span>capital</span>:<span>${data[i].capital}</span>
+                 <span class="key">capital</span>:<span class="value">${data[i].capital}</span>
              </div>
          </div>
 
@@ -52,39 +51,64 @@ function createCard(data){
 
     cards.innerHTML+=card;
 
-
-
-  }
-
-}
-
-
-
-
-function handelSelect(){
-  select.onchange=function(){
     let allCard=document.querySelectorAll(".card");
 
-    allCard.forEach(card =>{
-       //card.classList.add("hidden");
+    allCard.forEach((card)=>{
+        card.onclick=function(){
+           console.log(true);
+        }
     })
 
-    let allShow=allCard.filter(card =>{
-       return card.classList.contains(`${select.value}`)
-    });
 
-    console.log(allShow);
-    console.log(select.value);
-    allShow.forEach(card =>{
-       card.classList.remove("hidden");
-    })
+
   }
+
+}
+
+
+
+//serch with name
+let search=document.querySelector("[type=search]");
+
+
+search.onkeyup=function() {
+   if(search.value != ""){
+     let url_search=`https://restcountries.com/v3.1/name/${search.value}`;
+     fetch(url_search).then(response =>response.json()).then(data =>{
+        cards.innerHTML="";
+        createCard(data);
+     })
+
+   }
+
+}
+
+// select region
+
+select.onchange=function() {
+      console.log(select.value);
+     let url_select=`https://restcountries.com/v3.1/region/${select.value}`;
+
+     fetch(url_select).then(response =>response.json()).then(data =>{
+        cards.innerHTML="";
+        createCard(data);
+     })
+
+
+
 }
 
 
 
 
 
-//select on change
-//country dispay none
-//country
+// transform between pages
+
+function transformToPage(){
+    back.onclick=function(){
+        details.classList.add("hidden-section");
+        home.classList.remove("hidden-second");
+    }
+}
+
+transformToPage()

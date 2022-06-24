@@ -27,11 +27,10 @@ html {
 
 body {
   font-size: 1rem;
-  font-family: Nunito Sans;
-  font-family: cairo;
   width: 100%;
   height: 100%;
-  position: relative; }
+  position: relative;
+  font-family: cairo; }
 
 .container {
   width: 92%;
@@ -63,6 +62,9 @@ body {
 
 .check {
   background-color: green; }
+
+.hidden-section {
+  display: none; }
 
 header {
   position: fixed;
@@ -118,6 +120,8 @@ header {
         background-color: var(--header-color-dark);
         color: var(--main-color);
         border-radius: 5px; }
+        .home .container .search [type=search] .hidden {
+          display: none; }
         @media (max-width: 767px) {
           .home .container .search [type=search] {
             width: 100%; } }
@@ -152,23 +156,32 @@ header {
           grid-template-columns: repeat(3, 1fr); } }
       .home .container .cards .card {
         width: 250px;
-        min-height: 300px;
+        min-height: 400px;
         color: white;
         background-color: var(--header-color-dark);
         border-radius: 7px;
-        margin-top: 10px; }
+        margin-top: 10px;
+        cursor: pointer;
+        position: relative;
+        z-index: 1000; }
         .home .container .cards .card img {
           width: 100%;
           height: 50%; }
         .home .container .cards .card .card-content {
-          padding: 20px; }
+          padding: 10px; }
         .home .container .cards .card h2 {
           font-weight: bold; }
         .home .container .cards .card .card-details {
-          margin-top: 20px; }
+          padding: 10px 0; }
+          .home .container .cards .card .card-details div {
+            margin-top: 8px; }
+        .home .container .cards .card .key {
+          font-weight: bold;
+          font-size: 1rem; }
+        .home .container .cards .card .value {
+          margin-left: 10px; }
 
 section.details {
-  display: none;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -184,9 +197,10 @@ section.details {
       color: white;
       border-radius: 5px;
       border: none;
-      font-size: 20px; }
+      font-size: 20px;
+      cursor: pointer; }
     section.details .container .all {
-      margin-top: 40px;
+      margin-top: 60px;
       width: 100%;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -198,9 +212,47 @@ section.details {
           -ms-flex-align: center;
               align-items: center;
       color: var(--main-color); }
+      section.details .container .all .image {
+        width: 50%; }
+        section.details .container .all .imageimg {
+          width: 100%; }
       section.details .container .all .content {
-        width: 600px; }
+        width: 50%; }
         section.details .container .all .content h3 {
-          text-align: start; }
+          font-size: 2rem;
+          font-weight: bold;
+          text-transform: capitalize; }
+        section.details .container .all .content .details-text div {
+          margin-top: 10px; }
+          section.details .container .all .content .details-text div .key {
+            font-weight: bold;
+            font-size: 1.3rem;
+            padding: 10px; }
+          section.details .container .all .content .details-text div .value {
+            font-size: 1rem;
+            padding: 10px; }
+          section.details .container .all .content .details-text div .border {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            width: 100%;
+            margin-top: 20px; }
+        section.details .container .all .content .border {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-pack: distribute;
+              justify-content: space-around;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center; }
+        section.details .container .all .content .border-button {
+          margin: 20px; }
 
 /*# sourceMappingURL=style.css.map */
