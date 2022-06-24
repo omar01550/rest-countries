@@ -3,7 +3,10 @@ let select =document.querySelector('select');
 let back=document.querySelector(".back");
 let home=document.querySelector(".home");
 let details=document.querySelector(".details");
-let detailsImage=document.querySelector(".details img").src;
+
+//details
+let detailsImage=document.querySelector(".details img");
+let countryName=document.querySelector(".country-name");
 
 console.log(detailsImage);
 let url=`https://restcountries.com/v3.1/all`;
@@ -28,7 +31,7 @@ function createCard(data){
    console.log(data[0]);
   for(let i=0;i<data.length;i++){
     let card=`
-    <div class="card ${data[i].continents} country" data-border=${data[i].borders} data-nativeName=${data[0]} data-language=${data[i].languages}>
+    <div class="card ${data[i].continents} country" data-border=${data[i].borders} data-nativeName=${data[0]} data-language=${data[i].languages} id=${Math.floor(Math.random()*10000000)} data-img=${data[i].flags.png} data-name=${data[i].name.common} data-population=${data[i].population} data-capital=${data[i].capital}>
        <img src=${data[i].flags.png} alt="not found image">
        <div class="card-content">
          <h2>${data[i].name.common}</h2>
@@ -55,6 +58,17 @@ function createCard(data){
     cards.innerHTML+=card;
 
     let allCard=document.querySelectorAll(".card");
+
+    allCard.forEach(function(card){
+       card.onclick=function(){
+           detailsImage.src=card.dataset.img;
+           countryName.innerHTML=card.dataset.name;
+
+
+           home.classList.add("hidden-section");
+           details.classList.remove("hidden-section")
+       }
+    })
 
 
 
@@ -103,14 +117,15 @@ select.onchange=function() {
 
 // transform between pages
 
-function transformToPage(){
-    back.onclick=function(){
-        details.classList.add("hidden-section");
-        home.classList.remove("hidden-second");
-    }
-}
 
-transformToPage();
+    back.onclick=function(){
+        details.classList.toggle("hidden-section");
+        home.classList.toggle("hidden-second");
+        home.style.display="block";
+    }
+
+
+
 
 document.documentElement.addEventListener("click",function(e){
    console.log(e.target);

@@ -168,8 +168,7 @@ header {
         background-color: var(--header-color-dark);
         border-radius: 7px;
         margin-top: 10px;
-        cursor: pointer;
-        z-index: 1000; }
+        cursor: pointer; }
         .home .container .cards .card img {
           width: 100%;
           height: 50%; }
