@@ -3,6 +3,9 @@ let select =document.querySelector('select');
 let back=document.querySelector(".back");
 let home=document.querySelector(".home");
 let details=document.querySelector(".details");
+let detailsImage=document.querySelector(".details img").src;
+
+console.log(detailsImage);
 let url=`https://restcountries.com/v3.1/all`;
 
 //let url_name=`https://restcountries.com/v3.1/name/${"egypt"}`;
@@ -21,11 +24,11 @@ let url=`https://restcountries.com/v3.1/all`;
 // create Cards
 function createCard(data){
 
-  console.log(data);
 
+   console.log(data[0]);
   for(let i=0;i<data.length;i++){
     let card=`
-    <div class="card ${data[i].continents} country">
+    <div class="card ${data[i].continents} country" data-border=${data[i].borders} data-nativeName=${data[0]} data-language=${data[i].languages}>
        <img src=${data[i].flags.png} alt="not found image">
        <div class="card-content">
          <h2>${data[i].name.common}</h2>
@@ -53,11 +56,7 @@ function createCard(data){
 
     let allCard=document.querySelectorAll(".card");
 
-    allCard.forEach((card)=>{
-        card.onclick=function(){
-           console.log(true);
-        }
-    })
+
 
 
 
@@ -111,4 +110,8 @@ function transformToPage(){
     }
 }
 
-transformToPage()
+transformToPage();
+
+document.documentElement.addEventListener("click",function(e){
+   console.log(e.target);
+})
