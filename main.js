@@ -7,6 +7,13 @@ let details=document.querySelector(".details");
 let back=document.querySelector(".back");
 let detailsImage=document.querySelector(".details img");
 let countryName=document.querySelector(".country-name");
+let capitalDetails=document.querySelector(".details .capital-details")
+let populationDetais=document.querySelector(".details .population-details");
+let regionDetais=document.querySelector(".details .region-details");
+let subregionDetais=document.querySelector(".details .subregion-details");
+let border_1=document.querySelector(".border-1");
+let border_2=document.querySelector(".border-2");
+let border_3=document.querySelector(".border-3");
 
 //url api
 let url=`https://restcountries.com/v3.1/all`;
@@ -26,10 +33,11 @@ let url=`https://restcountries.com/v3.1/all`;
 
 // create Cards
 function createCard(data){
+
    console.log(data[0]);
   for(let i=0;i<data.length;i++){
     let card=`
-    <div class="card ${data[i].continents} country" data-border=${data[i].borders} data-nativeName=${data[0]} data-language=${data[i].languages} id=${Math.floor(Math.random()*10000000)} data-img=${data[i].flags.png} data-name=${data[i].name.common} data-population=${data[i].population} data-capital=${data[i].capital}>
+    <div class="card ${data[i].continents} country" data-border=${data[i].borders} data-nativeName=${data[0]} data-language=${data[i].languages} id=${Math.floor(Math.random()*10000000)} data-img=${data[i].flags.png} data-name=${data[i].name.common} data-population=${data[i].population} data-capital=${data[i].capital} data-subregion=${data[i].subregion} data-region=${data[i].region}>
        <img src=${data[i].flags.png} alt="not found image">
        <div class="card-content">
          <h2>${data[i].name.common}</h2>
@@ -58,6 +66,18 @@ function createCard(data){
        card.onclick=function(){
            detailsImage.src=card.dataset.img;
            countryName.innerHTML=card.dataset.name;
+           capitalDetails.innerHTML=card.dataset.capital;
+           regionDetais.innerHTML=card.dataset.region;
+           populationDetais.innerHTML=card.dataset.population;
+           subregionDetais.innerHTML=card.dataset.subregion;
+           let borders=card.dataset.border.split(",");
+
+           border_1.innerHTML=borders[0];
+           border_2.innerHTML=borders[1];
+           border_3.innerHTML=borders[2];
+
+
+
 
 
 
@@ -94,7 +114,7 @@ search.onkeyup=function() {
 // select region
 
 select.onchange=function() {
-      console.log(select.value);
+
      let url_select=`https://restcountries.com/v3.1/region/${select.value}`;
 
      fetch(url_select).then(response =>response.json()).then(data =>{
@@ -113,9 +133,7 @@ select.onchange=function() {
         home.style.display="block";
    }
 
-document.documentElement.addEventListener("click",function(e){
-   console.log(e.target);
-})
+
 
 
 
@@ -132,4 +150,29 @@ window.addEventListener("scroll",function(){
 
 scrollBtn.onclick=function(){
    window.scrollTo(0,0);
+}
+
+
+
+//dark mode
+let mood=document.querySelector(".mood");
+
+window.addEventListener("load",changeMood);
+mood.onclick=function(){
+   changeMood()
+}
+
+function changeMood(){
+  mood.classList.toggle("fa-sun");
+  mood.classList.toggle("fa-moon");
+
+  if(mood.classList.contains("fa-moon")){
+     document.documentElement.style.setProperty("--header-color-dark","white");
+     document.documentElement.style.setProperty("--color-home-dark","hsl(0, 0%, 98%)");
+     document.documentElement.style.setProperty("--text-color","black");
+  }else {
+    document.documentElement.style.setProperty("--header-color-dark","hsl(209, 23%, 22%)");
+    document.documentElement.style.setProperty("--color-home-dark","hsl(207, 26%, 17%)");
+    document.documentElement.style.setProperty("--text-color","white");
+  }
 }

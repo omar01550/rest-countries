@@ -5,7 +5,7 @@
   --white-half:hsl(0, 0%, 52%);
   --light-gray:hsl(0, 0%, 98%);
   --dark-light-test:hsl(0, 0%, 100%);
-  --main-color:white; }
+  --text-color:white; }
 
 * {
   padding: 0;
@@ -55,7 +55,7 @@ body {
   padding: 5px 10px;
   background-color: red;
   font-size: 2rem;
-  color: white;
+  color: var(--text-color);
   background-color: var(--header-color-dark);
   cursor: pointer; }
 
@@ -86,7 +86,7 @@ header {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    color: var(--main-color);
+    color: var(--text-color);
     font-weight: bold; }
     @media (max-width: 767px) {
       header .container .logo {
@@ -94,7 +94,8 @@ header {
     header .container i {
       margin-right: 20px;
       font-size: 1.5rem;
-      cursor: pointer; }
+      cursor: pointer;
+      color: var(--text-color); }
       @media (max-width: 767px) {
         header .container i {
           margin-right: 10px;
@@ -127,7 +128,7 @@ header {
         outline: none;
         font-size: 1.4rem;
         background-color: var(--header-color-dark);
-        color: var(--main-color);
+        color: var(--text-color);
         border-radius: 5px; }
         .home .container .search [type=search] .hidden {
           display: none; }
@@ -137,16 +138,19 @@ header {
       .home .container .search select {
         padding: 10px 30px;
         background-color: var(--header-color-dark);
-        color: var(--main-color);
+        color: var(--text-color);
         outline: none;
-        border: none; }
+        border: none;
+        outline: none; }
         @media (max-width: 767px) {
           .home .container .search select {
             margin-top: 70px; } }
         .home .container .search select option {
-          padding: 10px;
+          padding: 15px;
           font-size: 1.4rem;
-          margin-top: 10px; }
+          margin-top: 10px;
+          border: none;
+          outline: none; }
     .home .container .cards {
       width: 100%;
       padding: 40px 0;
@@ -166,7 +170,7 @@ header {
       .home .container .cards .card {
         width: 250px;
         min-height: 400px;
-        color: white;
+        color: var(--text-color);
         background-color: var(--header-color-dark);
         border-radius: 7px;
         margin-top: 10px;
@@ -202,7 +206,7 @@ section.details {
       background-color: var(--header-color-dark);
       -webkit-box-shadow: 2px 2px 2px 2px var(--header-color-dark);
               box-shadow: 2px 2px 2px 2px var(--header-color-dark);
-      color: white;
+      color: var(--text-color);
       border-radius: 5px;
       border: none;
       font-size: 20px;
@@ -219,7 +223,7 @@ section.details {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center;
-      color: var(--main-color); }
+      color: var(--text-color); }
       @media (max-width: 767px) {
         section.details .container .all {
           -ms-flex-wrap: wrap;

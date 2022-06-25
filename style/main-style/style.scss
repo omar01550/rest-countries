@@ -22,7 +22,7 @@ header{
      display: flex;
      justify-content: space-between;
      align-items: center;
-     color:var(--main-color);
+     color:var(--text-color);
      font-weight: bold;
 
      @media(max-width: 767px){
@@ -35,6 +35,7 @@ header{
        margin-right:20px;
        font-size:1.5rem;
        cursor:pointer;
+       color: var(--text-color);
 
        @media(max-width:767px){
           margin-right: 10px;
@@ -78,7 +79,7 @@ header{
                 outline: none;
                 font-size:1.4rem;
                 background-color: var(--header-color-dark);
-                color: var(--main-color);
+                color: var(--text-color);
                 border-radius: 5px;
                 .hidden{
                    display: none;
@@ -93,17 +94,21 @@ header{
              select{
                 padding:10px 30px;
                 background-color: var(--header-color-dark);
-                color: var(--main-color);
+                color: var(--text-color);
                 outline: none;
                 border:none;
+                outline: none;
                 @media(max-width:767px){
                    margin-top: 70px;
                 }
 
                   & option {
-                     padding:10px;
+                     padding:15px;
                      font-size:1.4rem;
                      margin-top:10px;
+                     border: none;
+                     outline: none;
+
                   }
              }
        }
@@ -131,7 +136,7 @@ header{
           .card{
              width:250px;
              min-height:400px;
-             color: white;
+             color: var(--text-color);
              background-color: var(--header-color-dark);
              border-radius:7px;
              margin-top:10px;
@@ -195,7 +200,7 @@ section.details{display: none;
            font-weight: bold;
            background-color: var(--header-color-dark);
            box-shadow: 2px 2px 2px 2px var(--header-color-dark);
-           color: white;
+           color: var(--text-color);
            border-radius: 5px;
            border:none;
            font-size:20px;
@@ -209,7 +214,7 @@ section.details{display: none;
             justify-content: space-between;
 
             align-items: center;
-            color: var(--main-color);
+            color: var(--text-color);
 
             @media(max-width:767px){
               flex-wrap: wrap;
