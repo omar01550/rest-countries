@@ -1,17 +1,17 @@
+//home section  vars
 let cards=document.querySelector(".cards");
 let select =document.querySelector('select');
-let back=document.querySelector(".back");
 let home=document.querySelector(".home");
+//details  section vars
 let details=document.querySelector(".details");
-
-//details
+let back=document.querySelector(".back");
 let detailsImage=document.querySelector(".details img");
 let countryName=document.querySelector(".country-name");
 
-console.log(detailsImage);
+//url api
 let url=`https://restcountries.com/v3.1/all`;
 
-//let url_name=`https://restcountries.com/v3.1/name/${"egypt"}`;
+
 
 //fetch all countries
   fetch(url).then(
@@ -26,8 +26,6 @@ let url=`https://restcountries.com/v3.1/all`;
 
 // create Cards
 function createCard(data){
-
-
    console.log(data[0]);
   for(let i=0;i<data.length;i++){
     let card=`
@@ -43,10 +41,7 @@ function createCard(data){
             <div class="two">
                <span class="key">Poulation</span>:<span class="value">${data[i].population}</span>
             </div>
-
-
-
-             <div class="three">
+         <div class="three">
                  <span class="key">capital</span>:<span class="value">${data[i].capital}</span>
              </div>
          </div>
@@ -58,15 +53,17 @@ function createCard(data){
     cards.innerHTML+=card;
 
     let allCard=document.querySelectorAll(".card");
-
+// when click on card
     allCard.forEach(function(card){
        card.onclick=function(){
            detailsImage.src=card.dataset.img;
            countryName.innerHTML=card.dataset.name;
 
 
-           home.classList.add("hidden-section");
-           details.classList.remove("hidden-section")
+
+           home.style.display="none";
+           details.style.display="block";
+
        }
     })
 
@@ -82,8 +79,6 @@ function createCard(data){
 
 //serch with name
 let search=document.querySelector("[type=search]");
-
-
 search.onkeyup=function() {
    if(search.value != ""){
      let url_search=`https://restcountries.com/v3.1/name/${search.value}`;
@@ -106,9 +101,6 @@ select.onchange=function() {
         cards.innerHTML="";
         createCard(data);
      })
-
-
-
 }
 
 
@@ -116,17 +108,28 @@ select.onchange=function() {
 
 
 // transform between pages
-
-
     back.onclick=function(){
-        details.classList.toggle("hidden-section");
-        home.classList.toggle("hidden-second");
+        details.style.display="none";
         home.style.display="block";
-    }
-
-
-
+   }
 
 document.documentElement.addEventListener("click",function(e){
    console.log(e.target);
 })
+
+
+
+//scroll to top
+let scrollBtn=document.querySelector(".scroll-to-top")
+window.addEventListener("scroll",function(){
+   if(window.scrollY > 600){
+       scrollBtn.style.right="40px";
+   }else{
+        scrollBtn.style.right="-40px";
+   }
+})
+
+
+scrollBtn.onclick=function(){
+   window.scrollTo(0,0);
+}

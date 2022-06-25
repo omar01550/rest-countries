@@ -8,16 +8,21 @@
 }
 
 .scroll-to-top{
-   background-color: var(--blue-second);
    position: fixed;
-   right: 5%;
-   bottom:50px;
-   font-size: 2rem;
-   color:var(--primary-color);
-   border:none;
-   border-radius:5px;
-   padding:3px;
-   display: none;
+   bottom: 60px;
+   right:-40px;
+   z-index: 10000;
+   border-radius: 5px;
+   border: none;
+   padding:5px 10px;
+   background-color: red;
+   font-size:2rem;
+   color: white;
+   background-color: var(--header-color-dark);
+   cursor: pointer;
+
+
+
 }
 
 .hidden{
@@ -33,5 +38,5 @@
 
 
 .hidden-section{
-  display: none; 
+  display: none;
 }

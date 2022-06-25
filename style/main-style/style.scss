@@ -6,6 +6,7 @@
 @import '../helpers/classes';
 @import '../helpers/mixins';
 
+//
 
 //header
 header{
@@ -55,8 +56,12 @@ header{
 
 
 
+
+
    .container{
        padding:110px 0;
+
+
 
        & .search{
           width: 100%;
@@ -132,7 +137,7 @@ header{
              margin-top:10px;
              cursor: pointer;
 
-             
+
 
 
 
@@ -172,7 +177,8 @@ header{
 //end home
 
 // details
-section.details{
+section.details{display: none;
+
   position: absolute;
    width: 100%;
    min-height: 100vh;
