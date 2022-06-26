@@ -1,3 +1,5 @@
+//loading section
+let loading=document.querySelector(".loading");
 //home section  vars
 let cards=document.querySelector(".cards");
 let select =document.querySelector('select');
@@ -26,7 +28,7 @@ let url=`https://restcountries.com/v3.1/all`;
   ).then(
     data =>{
        createCard(data);
-
+        loading.style.display="none";
     }
   )
 
@@ -105,6 +107,7 @@ search.onkeyup=function() {
      fetch(url_search).then(response =>response.json()).then(data =>{
         cards.innerHTML="";
         createCard(data);
+
      })
 
    }
@@ -114,12 +117,13 @@ search.onkeyup=function() {
 // select region
 
 select.onchange=function() {
-
+      loading.style.display="flex";
      let url_select=`https://restcountries.com/v3.1/region/${select.value}`;
 
      fetch(url_select).then(response =>response.json()).then(data =>{
         cards.innerHTML="";
         createCard(data);
+        loading.style.display="none";
      })
 }
 

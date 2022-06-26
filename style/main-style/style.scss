@@ -45,7 +45,29 @@ header{
    }
 }
 //end header
+//start loading
+section.loading{
+   width:100%;
+   height: 100%;
+   position: absolute;
+   background-color: var(--color-home-dark);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
 
+     & .circle{
+        width:70px;
+        height: 70px;
+        border:5px solid black;
+        border-color: var(--text-color) var(--text-color) transparent var(--text-color);
+        border-radius: 50%;
+        animation: round 1s 0s infinite ease;
+        margin-top:30px;
+     }
+
+}
+//end loading
 // home
 .home{
     position: absolute;
@@ -295,3 +317,18 @@ section.details{display: none;
 
 }
 //end details
+
+
+
+
+// animation
+
+@keyframes round {
+  from{
+     transform: rotateZ(0deg);
+  }
+
+  to{
+    transform: rotateZ(360deg);
+  }
+}
