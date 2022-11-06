@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/main-style/style.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>details</title>
+  </head>
+  <body>
+    <header>
+        <div class="container">
+          <h1 class="logo">Where in the world</h1>
+          <div class="changemood">
+              <i class="fa fa-moon theme-toggler"></i>
+              <select class="select-lang" name="" value="english">
+                   <option value="english">EN</option>
+                   <option value="arabic">AR</option>
+              </select>
+          </div>
+        </div>
+    </header>
+
+    <section class="details">
+
+        <div class="loder hidden">
+            <div class="circle">
+
+            </div>
+        </div>
+
+       <div class="container">
+            <a href="index.html" class="back">
+                  back
+            </a>
+
+
+       <div class="all">
+           <div class="image">
+              <img src="bg-mobile-light.jpg" alt="">
+           </div>
+
+           <div class="content">
+               <h3 class="country-name" data-english='' data-arabic=''>.....</h3>
+
+
+               <div class="country-details">
+                   <div class="details-text">
+                       <div>
+                           <span class="key key-population">population</span>:<span class="value population-details"></span>
+                       </div>
+
+                       <div>
+                           <span class="key key-region">region</span>:<span class="value region-details"></span>
+                       </div>
+
+                       <div>
+                           <span class="key key-subregion">subregion</span>:<span class="value subregion-details"></span>
+                       </div>
+
+                       <div>
+                           <span class="key key-capital">capital</span>:<span class="value capital-details"></span>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="border">
+                   <span class="borders-title">border countries</span>
+                   <div class="border-countries">
+
+
+
+                   </div>
+               </div>
+           </div>
+
+
+       </div>
+     </div>
+    </section>
+
+      <script src="js/details.js" charset="utf-8"></script>
+      <script src="js/common.js" charset="utf-8"></script>
+  </body>
+</html>
