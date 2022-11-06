@@ -6,22 +6,21 @@ let capitalDetails=document.querySelector(".details .capital-details")
 let populationDetais=document.querySelector(".details .population-details");
 let regionDetais=document.querySelector(".details .region-details");
 let subregionDetais=document.querySelector(".details .subregion-details");
-let bordersDiv = document.querySelector(".border");
-let all = document.querySelector(".all");
+let bordersDiv = document.querySelector(".border"); // parent div to borders countries
+let all = document.querySelector(".all"); // the div contains details
 let loder = document.querySelector(".loder");
 
 
 
-
+// when window load get target country
 window.onload = function () {
   getCountry(`https://restcountries.com/v3.1/name/${window.localStorage.countryName}`)
   handelLanguage();
 }
-
 //functions
-
 // get  countries from api and create countries card
 async function getCountry(url) {
+  loder.classList.remove("hidden")
     let response = await fetch(url);
     if (response.status == 404) { // if
          all.innerHTML=`<h1 class="details-alert">${localStorage.lang == 'english'?"not found country":"هذه الدولة غير موجودة"}</h1>`;
@@ -31,6 +30,7 @@ async function getCountry(url) {
     let data =  await response.json() ;
     loder.classList.add("hidden");
     handelDetails(...data);
+    loder.classList.add("hidden")
 }
 // [handel details ] == add all details to page
 function handelDetails(data) {
