@@ -3,39 +3,40 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/main-style/style.css">
+    <!-- font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>api countries</title>
   </head>
   <body>
-       <div class="page">
-
             <header>
                 <div class="container">
                   <h1 class="logo">Where in the world</h1>
-                  <div class="changemood">
-                      <i class="fa fa-moon mood"></i>
-                      <span>change mood</span>
+                  <div class="header-right">
+                      <i class="fa fa-moon theme-toggler"></i>
+                      <select class="select-lang" name="" value="english">
+                           <option value="english">EN</option>
+                           <option value="arabic">AR</option>
+                      </select>
                   </div>
                 </div>
             </header>
-
             <!--start home-->
             <section class="home">
+               <div class="loder">
+                    <div class="circle">
+
+                    </div>
+               </div>
                <button type="button" name="button" class="scroll-to-top">^</button>
               <div class="container">
 
                     <div class="search">
                          <input type="search" name="" value="" placeholder="search for any country">
-                         <select>
+                         <select class="region-select">
+                             <option value="All">All</option>
                              <option value="Asia">Asia</option>
                              <option value="Africa">Africa</option>
                              <option value="europe">Europe</option>
@@ -43,82 +44,38 @@
                              <option value="america">America</option>
                              <option value="North america">North america</option>
                              <option value="South america">South america</option>
+
                          </select>
                     </div>
 
-<div class="cards">
+<div class="countries">
 
 
 
-   </div>
+</div>
+  <button type="button" name="button" class="show-more">show more</button>
 </div>
 </section>
 <!-- edn home-->
 
 
 <!-- start details Page-->
- <section class="details">
-    <div class="container">
-         <button type="button" name="button" class="back">back</button>
 
-
-    <div class="all">
-        <div class="image">
-           <img src="bg-mobile-light.jpg" alt="">
-        </div>
-
-        <div class="content">
-            <h3 class="country-name">egypt</h3>
-
-
-            <div class="country-details">
-                <div class="details-text">
-                    <div>
-                        <span class="key">population</span>:<span class="value population-details">value</span>
-                    </div>
-
-                    <div>
-                        <span class="key">region</span>:<span class="value region-details">value</span>
-                    </div>
-
-                    <div>
-                        <span class="key">subregion</span>:<span class="value subregion-details">value</span>
-                    </div>
-
-                    <div>
-                        <span class="key">capital</span>:<span class="value capital-details">value</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border">
-                <span>border countries</span>
-                <div class="border-countries">
-                   <button type="button" name="button" class="border-button border-1"> freance</button>
-                   <button type="button" name="button" class="border-button border-2"> freance</button>
-                   <button type="button" name="button" class="border-button border-3"> freance</button>
-
-
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-  </div>
- </section>
 <!-- end details Page-->
 <!--start loading-->
-<section class="loading">
+<!-- <section class="loading">
     <div class="circle">
 
     </div>
-</section>
+</section> -->
 <!--end loading-->
 
 
-       </div>
+       <script src="./js/index.js" charset="utf-8"></script>
+       <script src="./js/common.js" charset="utf-8"></script>
 
-       <script src="main.js" charset="utf-8"></script>
+
+
+
   </body>
 </html>
