@@ -49,7 +49,7 @@ function handelDetails(data) {
       });
 
   }else{
-    let span = `<span type="button" name="button" class="alert"> ${localStorage.lang == 'arabic'?"لا يوجد حدود":"this country not have a borders"}</span>`;
+    let span = `<span type="button" name="button" class="alert"> ${localStorage.lang == 'arabic'?"لا يوجد حدود":"this country doesn't have a borders"}</span>`;
     bordersDiv.innerHTML+=span;
   }
 
