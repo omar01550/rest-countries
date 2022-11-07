@@ -51,3 +51,20 @@ function setLang(e) {
      localStorage.setItem("lang",e.target.value);
      handelLanguage()
 };
+
+window.addEventListener("load",function () {
+     if(localStorage.lang == 'arabic'){
+         selectLang.innerHTML='';
+         selectLang.innerHTML=`
+         <option value="arabic">AR</option>
+         <option value="english">EN</option>
+         `
+     }else{
+        selectLang.innerHTML='';
+        selectLang.innerHTML=`
+        <option value="english">EN</option>
+        <option value="arabic">AR</option>
+        `
+     }
+})
+
