@@ -46,7 +46,7 @@ themeToggler.addEventListener("click",function (e) {
 // handel language
 let selectLang = document.querySelector(".select-lang");
 window.addEventListener("load",handelLanguage);
-selectLang.addEventListener("click",setLang);
+selectLang.addEventListener("change",setLang);
 function setLang(e) {
      localStorage.setItem("lang",e.target.value);
      handelLanguage()
